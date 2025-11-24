@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
  import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Hooks from './components/Hooks'
+
+import Home from './Pages/HomePage/Home'
  
 export const App = () => {
   return (
@@ -11,14 +11,11 @@ export const App = () => {
 <Navbar/>
 
   <Routes>   
-  <Route path="/" element={<h1> This is home page </h1>}/>
-  <Route path="/about" element={<h1> This is about page </h1>}/>
-  <Route path="/contact" element={<h1> This is contact page </h1>}/>
-  <Route path="/blog" element={<h1> This is blog page </h1>}/>
-  <Route path="/test" element={<Hooks/>}/>
+  <Route path="/" element={<Home/>}/>
+  
   
   </Routes>  
-  <Footer/>
+ 
 </BrowserRouter>
 
 
