@@ -17,9 +17,9 @@ const Home = () => {
   }, []);
   return (
     <>
-      <h1> hi </h1>
-      <ul>
-        {items.map((item) => (
+  
+      <ul className="mt-7  flex flex-wrap justify-around ">
+        {items.map((item)=> (
           <div
             key={item._id}
             style={{
@@ -28,8 +28,8 @@ const Home = () => {
               padding: "10px",
             }}
           >
-            <h2>{item.title}</h2>
-            <h4>{item.subTitle}</h4>
+            <h2 className="text-black text-xl text-center ">{item.title}</h2>
+            <h4 className=" font-semibold text-center ">{item.subTitle}</h4>
             <p>{item.description}</p>
           </div>
         ))}
