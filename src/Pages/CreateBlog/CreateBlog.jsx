@@ -13,14 +13,15 @@ const CreateBlog = () => {
       const addBlog= async(e)=>{
            e.preventDefault()
          const formData= new FormData(e.target) 
-         console.log(...formData)
+        //  console.log(formData)
        
-         const data={
-             title :formData.get("title"),
-             subTitle:formData.get("subTitle"),
-             description:formData.get("description"),
+        //  const data={
+        //      title :formData.get("title"),
+        //      subTitle:formData.get("subTitle"),
+        //      description:formData.get("description"),
 
-         } 
+        //  } 
+        const data=Object.fromEntries(formData)
       const response= await axios.post ("http://localhost:3000/blog",data)  
       if(response.status==201)
       {
