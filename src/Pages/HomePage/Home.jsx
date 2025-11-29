@@ -8,7 +8,7 @@ const Home = () => {
   const [items, setItems] = useState([]); 
 
   const fetchBlog = async () => {
-    const response = await axios.get("http://localhost:3000/blog");
+    const response = await axios.get("https://cms-backend-iism.onrender.com");
     const result = response.data.data;
     setItems(result);
   }; 
