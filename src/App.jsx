@@ -4,7 +4,8 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom'
 
 import Home from './Pages/HomePage/Home'
 import CreateBlog from './Pages/CreateBlog/CreateBlog'
- 
+import SinglePage from './Pages/SingleBlog/SinglePage'
+
 export const App = () => {
   return (
     <>
@@ -13,6 +14,8 @@ export const App = () => {
   <Routes>   
   <Route path="/" element={<Home/>}/>
   <Route path="/add" element={<CreateBlog/>}/>
+  <Route path="/singleblog/:id" element={<SinglePage/>}/>
+
   
   
   </Routes>  
