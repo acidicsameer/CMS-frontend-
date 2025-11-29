@@ -21,7 +21,8 @@ const SinglePage = () => {
   },[]);
   return (
     <>
-      <section className="min-h-screen bg-gray-100 flex justify-center items-start pt-10 px-4">
+      <section className="min-h-screen bg-gray-100 flex justify-center items-start pt-10 px-4"> 
+      
   <div className="w-full max-w-xl bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden">
     <div className="flex items-center px-6 py-4">
       <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>

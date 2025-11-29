@@ -1,16 +1,17 @@
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
-const CreateBlog = () => {   
-    
-    
+const UpdateBlog = () => {
+ const {id}=useParams()
+      
     const navigate=useNavigate()  
 
 
 
 
 
-      const addBlog= async(e)=>{
+      const UpdateBlog= async(e)=>{
            e.preventDefault()
          const formData= new FormData(e.target) 
         //  console.log(formData)
@@ -21,21 +22,21 @@ const CreateBlog = () => {
         //      description:formData.get("description"),
 
         //  } 
-        const data=Object.fromEntries(formData)
-      const response= await axios.post ("http://localhost:3000/blog",data)  
-      if(response.status==201)
+        const data=Object.fromEntries(formData) 
+        
+      const response= await axios.patch (`http://localhost:3000/blog/${id}`,data)  
+      if(response.status==200)
       {
         navigate("/")
       }
 
            
       } 
-
   return (
-  <>
-<form  onSubmit={addBlog}
+   <>
+    <form  onSubmit={UpdateBlog}
   className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md flex flex-col gap-4">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center"> Create Blogs</h1>
+      <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center"> Update Blogs</h1>
 
   <input
     type="text" 
@@ -69,9 +70,8 @@ const CreateBlog = () => {
     Submit
   </button>
 </form>
-    
-  </>
+   </>
   )
 }
 
-export default CreateBlog
+export default UpdateBlog

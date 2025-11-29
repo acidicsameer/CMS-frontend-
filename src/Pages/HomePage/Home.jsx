@@ -5,7 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 const Home = () => {
 
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([]); 
 
   const fetchBlog = async () => {
     const response = await axios.get("http://localhost:3000/blog");
@@ -56,6 +56,10 @@ try {
             >
               Delete
             </button>
+           <Link to={`/edit/${item._id}`} >
+<button  className="px-3 py-1 bg-green-600 text-white rounded hover:bg-red-700 transition">Update Blog</button>
+
+           </Link>
           </div>
         </li>
       ))}
