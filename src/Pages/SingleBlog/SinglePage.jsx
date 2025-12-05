@@ -8,7 +8,7 @@ const SinglePage = () => {
   const { id } = useParams();
   const SingleBlog = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/blog/${id}`);
+      const response = await axios.get(`https://backendcms.up.railway.app/blog/${id}`);
     
       setBlog(response.data.data);
     } catch (error) {

@@ -24,7 +24,7 @@ const UpdateBlog = () => {
         //  } 
         const data=Object.fromEntries(formData) 
         
-      const response= await axios.patch (`http://localhost:3000/blog/${id}`,data)  
+      const response= await axios.patch (`https://backendcms.up.railway.app/blog/${id}`,data)  
       if(response.status==200)
       {
         navigate("/")

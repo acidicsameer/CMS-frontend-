@@ -8,13 +8,16 @@ const Home = () => {
   const [items, setItems] = useState([]); 
 
   const fetchBlog = async () => {
-    const response = await axios.get("http://localhost:3000/blog");
+    const response = await axios.get("https://backendcms.up.railway.app/blog",
+       { withCredentials: true }
+    ); 
+
     const result = response.data.data;
     setItems(result);
   }; 
   const deleteBlog=async(_id)=>{
 try {
-   const response= await axios.delete(`http://localhost:3000/blog/${_id}`) 
+   const response= await axios.delete(`https://backendcms.up.railway.app/blog/${_id}`) 
  console.log(response.data)   
  setItems((curr)=>curr.filter((item)=>item._id !== _id))
 

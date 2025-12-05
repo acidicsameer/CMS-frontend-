@@ -22,7 +22,7 @@ const CreateBlog = () => {
 
         //  } 
         const data=Object.fromEntries(formData)
-      const response= await axios.post ("http://localhost:3000/blog",data)  
+      const response= await axios.post ("https://backendcms.up.railway.app/blog",data)  
       if(response.status==201)
       {
         navigate("/")
