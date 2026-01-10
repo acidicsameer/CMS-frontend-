@@ -9,7 +9,7 @@ const Home = () => {
 
   const fetchBlog = async () => {
     const response = await axios.get("https://backendcms.up.railway.app/blog",
-       { withCredentials: true }
+       {withCredentials: true }
     ); 
 
     const result = response.data.data;
@@ -32,37 +32,55 @@ try {
   }, []);
   return (
     <>
-  
-      <section className="min-h-screen bg-gray-100 py-10 px-4">
+  <section className="min-h-screen bg-gray-100 py-10 px-4">
   <div className="max-w-4xl mx-auto">
-    <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">Blogs</h1>
+    <h1 className="text-3xl font-bold text-gray-900 mb-10 text-center">Blogs</h1>
 
-    <ul className="space-y-6">
+    <ul className="space-y-8">
       {items.map((item) => (
         <li
           key={item._id}
-          className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+          className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
         >
-          <h2 className="text-2xl font-semibold text-gray-900 mb-1">{item.title}</h2>
-          <h4 className="text-gray-500 mb-3">{item.subTitle}</h4>
-          <p className="text-gray-700 mb-4">{item.description}</p>
-          <div className="flex justify-between items-center">
-            <Link
-              to={`/singleblog/${item._id}`}
-              className="text-blue-600 font-medium hover:underline"
-            >
-              Read More →
-            </Link>
-            <button
-              onClick={() => deleteBlog(item._id)}
-              className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition"
-            >
-              Delete
-            </button>
-           <Link to={`/edit/${item._id}`} >
-<button  className="px-3 py-1 bg-green-600 text-white rounded hover:bg-red-700 transition">Update Blog</button>
+          <div className="flex flex-col md:flex-row gap-6">
+            {/* Image */}
+            {item.Image && (
+              <img
+                src={item.Image}
+                alt={item.title}
+                className="w-full md:w-48 h-48 object-cover rounded-xl"
+              />
+            )}
 
-           </Link>
+            {/* Blog Content */}
+            <div className="flex-1 flex flex-col justify-between">
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-900 mb-2">{item.title}</h2>
+                <h4 className="text-gray-500 mb-4">{item.subTitle}</h4>
+                <p className="text-gray-700 line-clamp-4">{item.description}</p>
+              </div>
+
+              {/* Actions */}
+              <div className="flex flex-wrap gap-3 mt-4 items-center">
+                <Link
+                  to={`/singleblog/${item._id}`}
+                  className="text-blue-600 font-medium hover:underline"
+                >
+                  Read More →
+                </Link>
+                <button
+                  onClick={() => deleteBlog(item._id)}
+                  className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+                >
+                  Delete
+                </button>
+                <Link to={`/edit/${item._id}`}>
+                  <button className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                    Update Blog
+                  </button>
+                </Link>
+              </div>
+            </div>
           </div>
         </li>
       ))}
